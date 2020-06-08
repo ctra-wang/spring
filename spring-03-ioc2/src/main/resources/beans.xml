@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--        使用私有构造函数注入-->
+<!--    <bean id="user" class="com.ctra.pojo.User">-->
+<!--        <property name="name" value="wangl"/>-->
+<!--    </bean>-->
+
+<!--    有参构造函数-下标-->
+<!--    <bean id="user" class="com.ctra.pojo.User">-->
+<!--        <constructor-arg index="0" value="wangl"/>-->
+<!--    </bean>-->
+    <bean id="user" class="com.ctra.pojo.User">
+        <constructor-arg type="java.lang.String" value="wangl" />
+    </bean>
+
+    <!--
+    id : bean 的唯一标识符，相遇对象名
+    class : bean 对象所对应的全限定名： 包名+类型
+    name：也是别名，而且比 name 用法更加灵活（支持多别名)
+    -->
+
+    <bean id="userT" class="com.ctra.pojo.UserT" name="user2 u2,u3;t2">
+        <property name="name" value="zhangsan"/>
+    </bean>
+
+    <!-- 别名，如果添加了别名，我们也可以使用别名获取到这个对象-->
+    <alias name="userT" alias="t2"/>
+
+</beans>
